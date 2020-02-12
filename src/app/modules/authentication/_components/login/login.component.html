@@ -1,4 +1,4 @@
-<div class="container-fluid ">
+<div class="container-fluid mt-5">
     <div class="d-flex justify-content-center">
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
@@ -20,11 +20,12 @@
                         <input type="checkbox" class="form-check-input" id="check">
                         <label class="form-check-label" for="check">Remember me</label>
                     </div>
+                    <br>
                     <button class="btn btn-dark btn-block">Sign in</button>
                 </form>
                 <br>
-                <button class="btn btn-link">Forgot password?</button>
-                <p>Don't have an account yet?<button class="btn btn-link" [routerLink]="['/signup']">Sign up</button></p>
+                <button class="btn btn-link" [routerLink]="['/resetpassword']">Forgot password?</button>
+                <p class="text-center">Don't have an account yet?<button class="btn btn-link" [routerLink]="['/signup']">Sign up</button></p>
             </div>
         </div>
     </div>
