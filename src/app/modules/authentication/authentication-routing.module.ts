@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './_components/login/login.component';
 import { SignupComponent } from './_components/signup/signup.component';
 import { ResetPassComponent } from './_components/reset-pass/reset-pass.component';
-import { InitComponent } from './_pages/init/init.component'; 
+import { InitComponent } from './_pages/init/init.component';
 
 const routes: Routes = [
   {
@@ -28,6 +28,10 @@ const routes: Routes = [
         pathMatch: 'full'
       }
     ]
+  },
+  {
+    path: 'consumer',
+    loadChildren: () => import('./../consumer/consumer.module').then(m => m.ConsumerModule)
   },
 
   {
