@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl,FormGroup } from '@angular/forms';
 
 
 
@@ -10,6 +11,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
   message:string
   type:string
   constructor(private _router: Router) { }
@@ -20,6 +25,12 @@ export class LoginComponent implements OnInit {
   }
   login(): void {
   
+    this._router.navigate(['/consumer']);
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.loginForm.value);
     this._router.navigate(['/consumer']);
   }
 
