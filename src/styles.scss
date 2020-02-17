@@ -1,2 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+//@import "./../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "./../node_modules/bootstrap/scss/functions";
+@import "./../node_modules/bootstrap/scss/variables";
+@import "./../node_modules/bootstrap/scss/mixins";
+
+//lisa color palete
+$lisa-navy:#103046;
+$lisa-neutral:#f5f8e3;
+$lisa-blue:#33e2e9;
+$lisa-green:#d4e487;
+$lisa-orange:#ff6f2d;
+$lisa-pink:#d5648c;
+
+$theme-colors: (
+  primary: $lisa-navy,
+  success:$lisa-green
+);
+
+@import "./../node_modules/bootstrap/scss/bootstrap";

@@ -2,16 +2,18 @@
     <div class="d-flex justify-content-center">
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
-                
-                <img class="img-responsive w-25 rounded mx-auto d-block" src="../../../../../assets/main-icon.png" alt="lisa app logo">
+
+                <img class="img-responsive w-25 rounded mx-auto d-block" src="../../../../../assets/main-icon.png"
+                    alt="lisa app logo">
                 <br>
-                
+
                 <h3 class="text-center">Join Lisa</h3>
                 <p class="text-center font-weight-lighter text-muted">Book Lisa appointments at your office</p>
-            
+
                 <form>
                     <div class="form-group ">
-                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                            placeholder="Email">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
@@ -20,14 +22,23 @@
                         <input type="checkbox" class="form-check-input" id="check">
                         <label class="form-check-label" for="check">Remember me</label>
                     </div>
+<<<<<<< HEAD
                     <br>
                     <button class="btn btn-dark btn-block">Sign in</button>
                 </form>
                 <br>
                 <button class="btn btn-link" [routerLink]="['/resetpassword']">Forgot password?</button>
                 <p class="text-center">Don't have an account yet?<button class="btn btn-link" [routerLink]="['/signup']">Sign up</button></p>
+=======
+                    <button type="button" class="btn btn-dark btn-block" [routerLink]="['/consumer']">Sign in</button>
+                </form>
+                <br>
+                <button class="btn btn-link">Forgot password?</button>
+                <app-alert [message]="message"></app-alert>
+                <p>Don't have an account yet?<button class="btn btn-link" [routerLink]="['/signup']">Sign up</button>
+                </p>
+>>>>>>> 249ff0d6f6f4cb2378afc124f0640f2a3ca95b50
             </div>
         </div>
     </div>
 </div>
-
