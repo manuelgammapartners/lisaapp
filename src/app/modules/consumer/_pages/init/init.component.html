@@ -1,19 +1,16 @@
-<div class="container-fluid h-100">
-    <div class="row h-100">
-        <div class="col-2 d-none d-md-block d-lg-block d-xs-block p-0">
-            <app-consumer-side-bar></app-consumer-side-bar>
-        </div>
-        <div class="col p-0">
-            <app-consumer-top-bar></app-consumer-top-bar>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <p>
-                            <button class="btn btn-primary">Hola soy un boton</button>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="consumer-main-container">
+    <div class="consumer-main-container-header">
+        <app-consumer-side-bar></app-consumer-side-bar>
+    </div>
+
+    <div class="consumer-main-container-body">
+        <app-consumer-top-bar></app-consumer-top-bar>
+        <nav aria-label="breadcrumb m-0 p-0">
+            <ol class="breadcrumb m-0 bg-transparent pt-0">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
     </div>
 </div>
