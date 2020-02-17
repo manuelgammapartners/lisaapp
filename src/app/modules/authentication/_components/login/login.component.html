@@ -1,35 +1,37 @@
-<div class="container-fluid ">
-    <div class="d-flex justify-content-center">
-        <div class="row">
-            <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
+<div class="container-fluid mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
+    
+                    <img class="img-responsive w-25 rounded mx-auto d-block" src="../../../../../assets/main-icon.png"
+                        alt="lisa app logo">
+                    <br>
+    
+                    <h3 class="text-center">Join Lisa</h3>
+                    <p class="text-center font-weight-lighter text-muted">Book Lisa appointments at your office</p>
 
-                <img class="img-responsive w-25 rounded mx-auto d-block" src="../../../../../assets/main-icon.png"
-                    alt="lisa app logo">
-                <br>
-
-                <h3 class="text-center">Join Lisa</h3>
-                <p class="text-center font-weight-lighter text-muted">Book Lisa appointments at your office</p>
-
-                <form>
-                    <div class="form-group ">
-                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                            placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check">
-                        <label class="form-check-label" for="check">Remember me</label>
-                    </div>
-                    <button type="button" class="btn btn-dark btn-block" [routerLink]="['/consumer']">Sign in</button>
-                </form>
-                <br>
-                <button class="btn btn-link">Forgot password?</button>
-                <app-alert [message]="message"></app-alert>
-                <p>Don't have an account yet?<button class="btn btn-link" [routerLink]="['/signup']">Sign up</button>
-                </p>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group ">
+                            <input type="email" formControlName="email" class="form-control" aria-describedby="emailHelp"
+                                placeholder="Email">
+                             
+                        </div>
+                        <div class="form-group">
+                            <input type="password" formControlName="password" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check">
+                            <label class="form-check-label" for="check">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-block" [disabled]="!loginForm.valid">Submit</button>
+                        <!--<button type="button" class="btn btn-dark btn-block" [routerLink]="['/consumer']">Sign in</button>-->
+                    </form>
+                    <br>
+                    <app-alert [message]="message" [type]="type" ></app-alert>
+                    <button class="btn btn-link">Forgot password?</button>
+                    <p>Don't have an account yet?<button class="btn btn-link" [routerLink]="['/signup']">Sign up</button>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
