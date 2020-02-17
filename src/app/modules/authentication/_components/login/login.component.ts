@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  message:string
+
   constructor(private _router: Router) { }
 
   ngOnInit(): void {
+    this.message = "HOLA"
   }
   login(): void {
     console.log("HOLA");
