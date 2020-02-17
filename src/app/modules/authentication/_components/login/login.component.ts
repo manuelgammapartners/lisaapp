@@ -11,14 +11,15 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   message:string
-
+  type:string
   constructor(private _router: Router) { }
 
   ngOnInit(): void {
-    this.message = "HOLA"
+    this.message = "There was an error, please try again"
+    this.type = "danger"
   }
   login(): void {
-    console.log("HOLA");
+  
     this._router.navigate(['/consumer']);
   }
 
