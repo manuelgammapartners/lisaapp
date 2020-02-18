@@ -13,11 +13,10 @@
 -->
 <div class="container-fluid">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-dark
-        ">
-          <li class="breadcrumb-item "><a href="#" class="text-white">Home</a></li>
-          <li class="breadcrumb-item"><a href="#"class="text-white">Library</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data</li>
+        <ol class="breadcrumb">
+          
+          <li *ngFor="let ruta of rutas; let last = last" class="breadcrumb-item active" aria-current="page" ><a href="{{ruta}}" [ngClass]="{'text-info': last}">{{ruta}}</a></li>
+          
         </ol>
       </nav>
 </div>

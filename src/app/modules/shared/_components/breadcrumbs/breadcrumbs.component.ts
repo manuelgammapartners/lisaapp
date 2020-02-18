@@ -8,10 +8,15 @@ import { Router } from '@angular/router';
 })
 export class BreadcrumbsComponent implements OnInit {
 
+  rutas: any
   constructor(private router: Router) { }
 
+
+
   ngOnInit(): void {
-    console.log(this.router.url);
+
+    this.rutas  = this.router.url.split('/');
+    
   }
 
 }

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.loginForm.value);
-    this._router.navigate(['/consumer']);
+    this._router.navigate(['/consumer/home/stuff']);
   }
 
 
