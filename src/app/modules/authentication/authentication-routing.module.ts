@@ -30,7 +30,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'consumer',
+    path: 'consumer/home/stuff',
     loadChildren: () => import('./../consumer/consumer.module').then(m => m.ConsumerModule)
   },
 
