@@ -4,6 +4,7 @@ import { InitComponent } from './_pages/init/init.component';
 
 import { UpcomingApptsComponent } from './_components/upcoming-appts/upcoming-appts.component';
 import { HomeComponent } from './_pages/home/home.component';
+import { ProfileComponent } from './_pages/profile/profile.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'upcoming-appointments', component: UpcomingApptsComponent },
+      { path: 'profile', component: ProfileComponent },
       {
         path: '',
         redirectTo: 'home',

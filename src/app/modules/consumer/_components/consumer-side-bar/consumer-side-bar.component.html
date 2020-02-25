@@ -12,19 +12,13 @@
                     <li class="">
                         <a href="" aria-expanded="false" [routerLink]="['/consumer/home']"
                             routerLinkActive="sidebar-option-active">
-                            <i class="fas fa-list side-icon"></i>
+                            <i class="fas fa-home side-icon"></i>
                             Home
                         </a>
                     </li>
                     <li class="">
-                        <a href="" aria-expanded="false" [routerLink]="['/consumer/events']"
+                        <a href="" aria-expanded="false" [routerLink]="['/consumer/upcoming-appointments']"
                             routerLinkActive="sidebar-option-active">
-                            <i class="fas fa-list side-icon"></i>
-                            Events
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="" aria-expanded="false" [routerLink]="['/consumer/upcoming-appointments']" routerLinkActive="sidebar-option-active" >
                             <i class="fas fa-calendar-check side-icon"></i>
                             Upcoming Appointments
                         </a>
@@ -33,6 +27,19 @@
                         <a href="" aria-expanded="false">
                             <i class="fas fa-history side-icon"></i>
                             Previous Appointments
+                        </a>
+                    </li>
+                    <li class="sidebar-inner-heading">User</li>
+                    <li class="">
+                        <a href="" aria-expanded="false" [routerLink]="['/consumer/profile']"
+                            routerLinkActive="sidebar-option-active">
+                            <i class="fas fa-user side-icon"></i>
+                            Profile
+                        </a>
+                        <a href="" aria-expanded="false" [routerLink]="['/consumer/credit-cards']"
+                            routerLinkActive="sidebar-option-active">
+                            <i class="fas fa-user side-icon"></i>
+                            Credit Cards
                         </a>
                     </li>
                 </ul>
