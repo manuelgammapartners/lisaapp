@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class RequestService {
 
   constructor(private http: HttpClient) { }
-  Url = 'https://jsonplaceholder.typicode.com/todos/1';
+  Url = 'http://localhost:1338/appointments/mine?access_token=s0sPMpmfbFIMGziuYudxpj4OtqD9QWWcS5o3X3LoMQwOaIStjzHcf1C24wo7trip3BJwHeMy0X1dO52ls1R6eUlFiD88h2zj3JtL';
 
   getSomething() {
     return this.http.get(this.Url);

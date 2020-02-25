@@ -6,11 +6,12 @@ import { InitComponent } from './_pages/init/init.component';
 import { ConsumerTopBar } from './_components/top-bar/consumer-top-bar.component';
 
 import { ConsumerSideBarComponent } from './_components/consumer-side-bar/consumer-side-bar.component';
-import { SharedModule } from './../shared/shared.module'
+import { SharedModule } from './../shared/shared.module';
+import { UpcomingApptsComponent } from './_components/upcoming-appts/upcoming-appts.component'
 
 
 @NgModule({
-  declarations: [InitComponent, ConsumerTopBar, ConsumerSideBarComponent],
+  declarations: [InitComponent, ConsumerTopBar, ConsumerSideBarComponent, UpcomingApptsComponent],
   imports: [
     CommonModule,
     ConsumerRoutingModule,

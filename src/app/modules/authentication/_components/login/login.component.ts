@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.message = "There was an error, please try again"
     this.type = "danger"
-    this.getSmt();
   }
   login(): void {
   
@@ -37,14 +36,6 @@ export class LoginComponent implements OnInit {
     
   }
 
-  getSmt() {
-    this._requestService.getSomething().subscribe(
-      data => {
-          console.log(data)
-      },
-      error => {
-          console.log(error)
-      });
-  }
+
 
 }
