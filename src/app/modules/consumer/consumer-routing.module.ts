@@ -17,15 +17,6 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'consumer',
-  //   loadChildren: () => import('./../consumer/consumer.module').then(m => m.ConsumerModule),
-  //   children: [
-  //     { path: 'home', component: HomeComponent },
-
-  //   ]
-  // },
-
   {
     path: '',
     redirectTo: '',
