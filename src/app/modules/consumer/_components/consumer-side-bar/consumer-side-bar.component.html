@@ -10,19 +10,27 @@
                 <ul class="vertical-nav-menu">
                     <li class="sidebar-inner-heading">Menu</li>
                     <li class="">
-                        <a href="#" aria-expanded="false" class="sidebar-option-active">
+                        <a href="" aria-expanded="false" [routerLink]="['/home']"
+                            routerLinkActive="sidebar-option-active">
+                            <i class="fas fa-list side-icon"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="" aria-expanded="false" [routerLink]="['/events']"
+                            routerLinkActive="sidebar-option-active">
                             <i class="fas fa-list side-icon"></i>
                             Events
                         </a>
                     </li>
                     <li class="">
-                        <a href="#" aria-expanded="false">
+                        <a href="" aria-expanded="false">
                             <i class="fas fa-calendar-check side-icon"></i>
                             Upcoming Appointments
                         </a>
                     </li>
                     <li class="">
-                        <a href="#" aria-expanded="false">
+                        <a href="" aria-expanded="false">
                             <i class="fas fa-history side-icon"></i>
                             Previous Appointments
                         </a>
