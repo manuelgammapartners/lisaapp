@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl,FormGroup } from '@angular/forms';
-import { RequestService } from 'src/app/request.service';
+
 
 
 
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   });
   message:string
   type:string
-  constructor(private _router: Router, private _requestService: RequestService) { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
     this.message = "There was an error, please try again"
