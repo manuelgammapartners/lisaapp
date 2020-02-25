@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:'https://lisa-api-stg.azurewebsites.net'
+  apiUrl:'https://lisa-api-stg.azurewebsites.net/'
   //apiUrl:
 };
 

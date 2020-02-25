@@ -8,12 +8,14 @@
 @import "./../node_modules/bootstrap/scss/mixins";
 
 //lisa color palete
-$lisa-navy:#103046;
-$lisa-neutral:#f5f8e3;
-$lisa-blue:#33e2e9;
-$lisa-green:#d4e487;
-$lisa-orange:#ff6f2d;
-$lisa-pink:#d5648c;
+// $lisa-navy:#103046;
+// $lisa-neutral:#f5f8e3;
+// $lisa-blue:#33e2e9;
+// $lisa-green:#d4e487;
+// $lisa-orange:#ff6f2d;
+// $lisa-pink:#d5648c;
+
+@import "theme/lisa";
 
 $theme-colors: (
   primary: $lisa-navy,

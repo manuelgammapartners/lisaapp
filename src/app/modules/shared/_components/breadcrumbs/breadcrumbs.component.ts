@@ -8,15 +8,23 @@ import { Router } from '@angular/router';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  rutas: any
+  routes: any
   constructor(private router: Router) { }
 
 
 
   ngOnInit(): void {
-
-    this.rutas  = this.router.url.split('/');
-    
+    this.generateRoutes();
+  }
+  generateRoutes() {
+    var _routes: any = this.router.url.split('/');
+    var _result: any[] = [];
+    for (var i = 0; i < _routes.length; i++) {
+      if (_routes[i] !== "" && _routes[i] !== "consumer") {
+        _result.push(_routes[i]);
+      }
+    }
+    this.routes = _result;
   }
 
 }

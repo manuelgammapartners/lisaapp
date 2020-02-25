@@ -1,22 +1,6 @@
-<!--<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
-           <p class="font-weight-lighter text-muted">Admin <i class="fas fa-angle-double-right"></i> Home <i class="fas fa-angle-double-right"></i> Appointments</p> 
-        </div> 
-    
-    </div>
-
-</div>
-
-
--->
-<div class="container-fluid">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          
-          <li *ngFor="let ruta of rutas; let last = last" class="breadcrumb-item active" aria-current="page" ><a href="{{ruta}}" [ngClass]="{'text-info': last}">{{ruta}}</a></li>
-          
-        </ol>
-      </nav>
-</div>
+<nav aria-label="breadcrumb bg-transparent">
+  <ol class="breadcrumb  bg-transparent">
+    <li *ngFor="let route of routes; let last = last" class="breadcrumb-item active" aria-current="page"><a
+        href="{{route}}" [ngClass]="{'text-info': last}">{{route}}</a></li>
+  </ol>
+</nav>
