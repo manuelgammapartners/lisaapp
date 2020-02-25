@@ -27,7 +27,10 @@
                         <!--<button type="button" class="btn btn-dark btn-block" [routerLink]="['/consumer']">Sign in</button>-->
                     </form>
                     <br>
-                    <app-alert [message]="message" [type]="type" ></app-alert>
+                    <div *ngIf="message">
+                        <app-alert [message]="message" [type]="type" ></app-alert>
+                    </div>
+                    
                     
                     <button class="btn btn-link">Forgot password?</button>
                     <p>Don't have an account yet?<button class="btn btn-link" [routerLink]="['/signup']">Sign up</button>
