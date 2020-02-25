@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl,FormGroup } from '@angular/forms';
+import { RequestService } from 'src/app/request.service';
 
 
 
@@ -15,9 +16,9 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
   });
-  message: string
-  type: string
-  constructor(private _router: Router) { }
+  message:string
+  type:string
+  constructor(private _router: Router, private _requestService: RequestService) { }
 
   ngOnInit(): void {
     this.message = "There was an error, please try again"
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
     console.warn(this.loginForm.value);
     this._router.navigate(['/consumer']);
   }
+
 
 
 }
