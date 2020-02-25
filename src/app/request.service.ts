@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
+import { Observable } from "rxjs";
+import { environment } from '../environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'no-cache'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +16,19 @@ import { HttpClient } from '@angular/common/http';
 export class RequestService {
 
   constructor(private http: HttpClient) { }
-  Url = 'http://localhost:1338/appointments/mine?access_token=s0sPMpmfbFIMGziuYudxpj4OtqD9QWWcS5o3X3LoMQwOaIStjzHcf1C24wo7trip3BJwHeMy0X1dO52ls1R6eUlFiD88h2zj3JtL';
 
-  getSomething() {
-    return this.http.get(this.Url);
+  
+  //Todo add secureRequest function
+
+  post(endpoint: string, params: {}, queryParams: {} = {}): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + endpoint, JSON.stringify(params), httpOptions)
+  }
+
+  get(endpoint: string, params: {} = {}): Observable<any> {
+      return this.http.get<any>(environment.apiUrl + endpoint, { params: params, headers: httpOptions.headers })
+  }
+
+  put(endpoint: string, params: {}, queryParams: {} = {}): Observable<any> {
+      return this.http.put<any>(environment.apiUrl + endpoint, JSON.stringify(params), { params: queryParams, headers: httpOptions.headers })
   }
 }
