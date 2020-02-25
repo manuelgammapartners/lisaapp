@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestService } from 'src/app/request.service';
+import { ConsumerService } from '../../consumer.service';
 
 @Component({
   selector: 'app-upcoming-appts',
@@ -10,7 +10,7 @@ export class UpcomingApptsComponent implements OnInit {
   message
   appointments: any;
   isLoading = true;
-  constructor(private _requestService: RequestService) { }
+  constructor(private _consumerService: ConsumerService) { }
 
   ngOnInit(): void {
     this.message = "Loading your appointments"
@@ -19,7 +19,7 @@ export class UpcomingApptsComponent implements OnInit {
 
 
   getSmt() {
-    this._requestService.getSomething().subscribe(
+    this._consumerService.getUpcomingAppts().subscribe(
       data => {
           this.appointments = data['collection'];
           this.isLoading = false;
