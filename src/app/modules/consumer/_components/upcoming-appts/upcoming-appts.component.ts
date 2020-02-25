@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsumerService } from '../../consumer.service';
+import { ConsumerService } from '../../_services/consumer.service';
 
 @Component({
   selector: 'app-upcoming-appts',
