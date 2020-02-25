@@ -6,7 +6,12 @@
     <div class="consumer-main-container-body">
         <app-consumer-top-bar></app-consumer-top-bar>
         <app-breadcrumbs></app-breadcrumbs>
-        <app-upcoming-appts></app-upcoming-appts>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
