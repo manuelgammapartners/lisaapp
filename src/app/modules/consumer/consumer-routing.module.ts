@@ -4,15 +4,18 @@ import { InitComponent } from './_pages/init/init.component';
 
 import { UpcomingApptsComponent } from './_components/upcoming-appts/upcoming-appts.component';
 import { HomeComponent } from './_pages/home/home.component';
+import { ProfileComponent } from './_pages/profile/profile.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: InitComponent,
+    data: { title: 'Upcoming Appointments' },
     children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'upcoming-appointments', component: UpcomingApptsComponent },
+      { path: 'home', component: HomeComponent, data: { title: 'Home' } },
+      { path: 'upcoming-appointments', component: UpcomingApptsComponent, data: { title: 'Upcoming Appointments' } },
+      { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
       {
         path: '',
         redirectTo: 'home',
