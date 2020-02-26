@@ -11,10 +11,11 @@ const routes: Routes = [
   {
     path: '',
     component: InitComponent,
+    data: { title: 'Upcoming Appointments' },
     children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'upcoming-appointments', component: UpcomingApptsComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'home', component: HomeComponent, data: { title: 'Home' } },
+      { path: 'upcoming-appointments', component: UpcomingApptsComponent, data: { title: 'Upcoming Appointments' } },
+      { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
       {
         path: '',
         redirectTo: 'home',

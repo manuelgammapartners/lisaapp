@@ -13,8 +13,9 @@ export class AuthService {
   constructor(private _requestService: RequestService, ) { }
 
 
-  postLogin(credentials: any):Observable<User>{
-    return this._requestService.post('auth/web-app/login', credentials)
+  postLogin(credentials: any): Observable<User> {
+    //return this._requestService.post('auth/web-app/login', credentials)
+    return this._requestService.postT<User>('auth/web-app/login', credentials);
   }
 
 
