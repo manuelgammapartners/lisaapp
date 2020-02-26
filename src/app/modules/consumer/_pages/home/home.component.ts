@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private _localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    console.log("session"+this._localStorageService.getSession())
+    console.log("session"+JSON.stringify(this._localStorageService.getSession()));
     
   }
 

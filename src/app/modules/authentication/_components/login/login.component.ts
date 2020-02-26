@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../_services/auth.service';
 import { logging } from 'protractor';
 import { User } from 'src/app/models/user';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 
 
@@ -20,9 +21,10 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
   });
-  message: string
-  type: string
-  constructor(private _router: Router, private _authService: AuthService) { }
+  message:string
+  type:string
+  roles
+  constructor(private _router: Router, private _authService: AuthService,private _localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
 
@@ -31,25 +33,20 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.loginModel.email = this.loginForm.value.email
     this.loginModel.password = this.loginForm.value.password
-
-    this._authService.postLogin(this.loginModel).subscribe((value: User) => {
-      console.log("VALUE", value);
-    }, error => {
-
-    });
-
-
-    // this._authService.postLogin(this.loginModel).subscribe(
-    //   data => {
-    //     console.log("data", data);
-
-    //     this._router.navigate(['/consumer']);
-    //   },
-    //   error => {
-    //     this.message = error.error.message;
-    //     console.log("error" + JSON.stringify(error));
-    //   });
-
+    
+    this._authService.postLogin(this.loginModel).subscribe(
+      data => {
+        this._localStorageService.storeSession(data);
+        console.log("data"+JSON.stringify(data));
+        this.roles = data["roles"];
+        
+        this._router.navigate(['/consumer']);
+      }, 
+      error => {
+        this.message = error.error.message;
+        console.log("error"+JSON.stringify(error));
+      });
+    
   }
 
   onSubmit() {
@@ -59,6 +56,14 @@ export class LoginComponent implements OnInit {
     //console.warn(this.loginForm.value);
     //this._router.navigate(['/consumer']);
     this.login();
+  }
+
+
+  verifyRole(roles){
+    console.log("estos son los roles"+JSON.stringify(roles));
+    let role = roles.some(e => e.name === 'admin');
+    
+
   }
 
 
