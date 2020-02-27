@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ConsumerTopBar implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private _router: Router) {
+    _router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        console.log("VAL", val);
+      }
+    });
+  }
 
   public ngOnInit() {
 
