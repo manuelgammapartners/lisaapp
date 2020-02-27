@@ -33,4 +33,7 @@ export class ConsumerTopBar implements OnInit, OnDestroy {
   public ngOnDestroy() {
     this.routerObserver.unsubscribe();
   }
+  logOut() {
+    this._storageService.cleanLocalStorage();
+  }
 }
