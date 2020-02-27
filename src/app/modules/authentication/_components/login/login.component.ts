@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   });
   message:string
   type:string
-  roles
+  isLoading: boolean
   constructor(private _router: Router, private _authService: AuthService,private _localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -33,14 +33,13 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.loginModel.email = this.loginForm.value.email
     this.loginModel.password = this.loginForm.value.password
+    this.isLoading = true;
     
     this._authService.postLogin(this.loginModel).subscribe(
       data => {
         this._localStorageService.storeSession(data);
-        console.log("data"+JSON.stringify(data));
-        this.roles = data["roles"];
         
-        this._router.navigate(['/consumer']);
+        this.handleNavigationForUser()
       }, 
       error => {
         this.message = error.error.message;
@@ -53,16 +52,32 @@ export class LoginComponent implements OnInit {
 
 
     // TODO: Use EventEmitter with form value
-    //console.warn(this.loginForm.value);
-    //this._router.navigate(['/consumer']);
+
     this.login();
   }
 
 
-  verifyRole(roles){
-    console.log("estos son los roles"+JSON.stringify(roles));
-    let role = roles.some(e => e.name === 'admin');
+  handleNavigationForUser(){
+
+
+    let store = this._localStorageService.getSession()
     
+
+
+    if(store.roles.some(e => e.name === 'admin')){
+      this._router.navigate(['/admin']);
+    }
+    else if(store.roles.some(e => e.name === 'service manager')){
+      this._router.navigate(['/manager']);
+    }
+    else if(store.roles.some(e => e.name === 'consumer')){
+      this._router.navigate(['/consumer']);
+    }else {
+      console.log("Web app is not for artist");
+    }
+
+    this.isLoading = false;
+
 
   }
 
