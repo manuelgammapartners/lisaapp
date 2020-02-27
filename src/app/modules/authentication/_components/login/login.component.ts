@@ -72,6 +72,8 @@ export class LoginComponent implements OnInit {
     }
     else if(store.roles.some(e => e.name === 'consumer')){
       this._router.navigate(['/consumer']);
+    }else {
+      console.log("Web app is not for artist");
     }
 
     this.isLoading = false;
