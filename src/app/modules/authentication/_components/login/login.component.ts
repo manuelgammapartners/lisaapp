@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       }, 
       error => {
         this.message = error.error.message;
-        console.log("error"+JSON.stringify(error));
+        this.isLoading = false;
       });
     
   }
@@ -65,10 +65,13 @@ export class LoginComponent implements OnInit {
 
 
     if(store.roles.some(e => e.name === 'admin')){
-      this._router.navigate(['/admin']);
+      //Todo add this route and uncomment this._router.navigate(['/admin']);
+      this.message = "There is not admin module yet, please login as consumer";
     }
     else if(store.roles.some(e => e.name === 'service manager')){
-      this._router.navigate(['/manager']);
+      
+      //Todo add this route and uncomment this._router.navigate(['/manager']);
+      this.message = "There is not manager module yet, please login as consumer";
     }
     else if(store.roles.some(e => e.name === 'consumer')){
       this._router.navigate(['/consumer']);
