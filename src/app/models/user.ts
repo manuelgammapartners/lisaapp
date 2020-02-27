@@ -1,6 +1,8 @@
-export class User {
+export default class User {
     id: number;
     email: string;
-    password: string;
-    fullName: string;
+    first_name: string;
+    last_name: string;
+    phone: string;
+    avatar: string;
 }
