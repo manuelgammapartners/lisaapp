@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { User } from 'src/app/models/user';
+import User from 'src/app/models/user';
 import { Observable } from 'rxjs';
 
 
@@ -15,7 +15,7 @@ export class AuthService {
   postLogin(credentials: any): Observable<User> {
     //return this._requestService.post('auth/web-app/login', credentials)
     return this._requestService.postT<User>('v2/auth', credentials)
-    
+
   }
 
   postSignUp(user) {

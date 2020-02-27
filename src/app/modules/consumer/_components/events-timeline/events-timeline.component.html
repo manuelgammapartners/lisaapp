@@ -3,6 +3,11 @@
         Events timeline
     </div>
     <div class="card-body">
-        aqui ira el contenido del timeline
+        <app-loading *ngIf="isLoading" [message]="loadingMessage"></app-loading>
+        <div *ngIf="!isLoading && events">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let ev of events; trackBy:eventTracker">{{ev.service.name}}</li>
+            </ul>
+        </div>
     </div>
 </div>
