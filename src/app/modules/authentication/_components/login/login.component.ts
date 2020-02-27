@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.loginModel.email = this.loginForm.value.email
     this.loginModel.password = this.loginForm.value.password
     this.isLoading = true;
-    
+    this._localStorageService.cleanLocalStorage();
     this._authService.postLogin(this.loginModel).subscribe(
       data => {
         this._localStorageService.storeSession(data);
