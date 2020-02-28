@@ -6,7 +6,9 @@
         <app-loading *ngIf="isLoading" [message]="loadingMessage"></app-loading>
         <div *ngIf="!isLoading && events">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let ev of events; trackBy:eventTracker">{{ev.service.name}}</li>
+                <li class="list-group-item" *ngFor="let ev of events; trackBy:eventTracker">
+                    <app-event-card [event]="ev"></app-event-card>
+                </li>
             </ul>
         </div>
     </div>
