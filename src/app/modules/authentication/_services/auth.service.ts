@@ -18,5 +18,9 @@ export class AuthService {
 
   }
 
+  postSignUp(user) {
+    return this._requestService.post('users/create', user);
+}
+
 
 }
