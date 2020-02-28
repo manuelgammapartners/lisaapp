@@ -7,7 +7,10 @@ import { logging } from 'protractor';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import User from 'src/app/models/user';
 import Artist from 'src/app/models/artist';
-import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
+import Admin from 'src/app/models/admin';
+import Manager from 'src/app/models/manager';
+import Consumer from 'src/app/models/consumer';
+import Session from 'src/app/models/session';
 
 
 
@@ -42,8 +45,9 @@ export class LoginComponent implements OnInit {
     this._localStorageService.cleanLocalStorage();
     this._authService.postLogin(this.loginModel).subscribe(
       data => {
-        this.createSessionUser(data)
-        this._localStorageService.storeSession(data);
+        var session = new Session().deserialize(data);
+        this.redirectUser(session)
+        this._localStorageService.storeSession(session);
 
         //this.handleNavigationForUser()
       },
@@ -63,12 +67,13 @@ export class LoginComponent implements OnInit {
     this.login();
   }
 
-  createSessionUser(obj){
-    /*var user = new User();
+  redirectUser(obj){
+    var user = new User();
     console.log("que trae"+JSON.stringify(obj));
     switch(obj.type){
       case 'admin':
         console.log("es admin"+obj.type);
+
         break;
 
       case 'service manager':
@@ -76,12 +81,18 @@ export class LoginComponent implements OnInit {
         break;
 
       case 'consumer':
-        console.log("es admin"+obj.type);
+        console.log("es consumer"+obj.type);
+        this._router.navigate(['/consumer']);
         break;
-      case 'artist'
-        console.log();
+
+      case 'artist':
+        console.log("es artista"+obj.type);
         break;
-    }*/
+
+      default:
+        console.log("no tiene ningun tipo");
+        break;
+    }
 
     /*
 
@@ -104,6 +115,10 @@ export class LoginComponent implements OnInit {
     }
 
     return user;*/
+
+    return user;
+
+    this.isLoading = false;
   }
 
   handleNavigationForUser() {
