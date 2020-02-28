@@ -7,7 +7,10 @@ import { logging } from 'protractor';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import User from 'src/app/models/user';
 import Artist from 'src/app/models/artist';
-import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
+import Admin from 'src/app/models/admin';
+import Manager from 'src/app/models/manager';
+import Consumer from 'src/app/models/consumer';
+import Session from 'src/app/models/session';
 
 
 
@@ -42,10 +45,9 @@ export class LoginComponent implements OnInit {
     this._localStorageService.cleanLocalStorage();
     this._authService.postLogin(this.loginModel).subscribe(
       data => {
-        this.createSessionUser(data)
-        this._localStorageService.storeSession(data);
-        this._router.navigate(['/consumer']);
-        //this.handleNavigationForUser()
+        var session = new Session().deserialize(data);
+        this.redirectUser(session)
+        this._localStorageService.storeSession(session);
       },
       error => {
         this.message = error.error.message;
@@ -54,21 +56,17 @@ export class LoginComponent implements OnInit {
 
   }
 
-  //delete later
   onSubmit() {
-
-
-    // TODO: Use EventEmitter with form value
-
     this.login();
   }
 
-  createSessionUser(obj) {
-    /*var user = new User();
+  redirectUser(obj){
+    var user = new User();
     console.log("que trae"+JSON.stringify(obj));
     switch(obj.type){
       case 'admin':
         console.log("es admin"+obj.type);
+
         break;
 
       case 'service manager':
@@ -76,34 +74,21 @@ export class LoginComponent implements OnInit {
         break;
 
       case 'consumer':
-        console.log("es admin"+obj.type);
+        console.log("es consumer"+obj.type);
+        this._router.navigate(['/consumer']);
         break;
-      case 'artist'
-        console.log();
+
+      case 'artist':
+        console.log("es artista"+obj.type);
         break;
-    }*/
 
-    /*
+      default:
+        console.log("no tiene ningun tipo");
+        break;
+    }
+    return user;
 
-    if (obj.type.some(e => e.name === 'admin')) {
-      //Todo add this route and uncomment this._router.navigate(['/admin']);
-      //user = new Admin();
-      this.message = "There is not admin module yet, please login as consumer";
-    }
-    else if (obj.type.some(e => e.name === 'service manager')) {
-      //user = new Manager();
-      //Todo add this route and uncomment this._router.navigate(['/manager']);
-      this.message = "There is not manager module yet, please login as consumer";
-    }
-    else if (obj.type.some(e => e.name === 'consumer')) {
-      //user = new Consumer();
-      console.log("entro aca y es un user");
-      this._router.navigate(['/consumer']);
-    } else {
-      console.log("Web app is not for artist");
-    }
-
-    return user;*/
+    this.isLoading = false;
   }
 
   handleNavigationForUser() {
