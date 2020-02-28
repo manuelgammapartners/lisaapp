@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.createSessionUser(data)
         this._localStorageService.storeSession(data);
-
+        this._router.navigate(['/consumer']);
         //this.handleNavigationForUser()
       },
       error => {
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
     this.login();
   }
 
-  createSessionUser(obj){
+  createSessionUser(obj) {
     /*var user = new User();
     console.log("que trae"+JSON.stringify(obj));
     switch(obj.type){

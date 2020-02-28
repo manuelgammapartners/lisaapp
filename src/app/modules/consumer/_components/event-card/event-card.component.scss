@@ -1,4 +1,20 @@
+@import './../../../../../theme/colors';
+
 .event-card{
+    .banner-img{
+
+    }
+    .baner-text{
+        position: absolute;
+    color:#00BBD5 !important;
+    }
+    .event-card-header{
+        // background-image: url('./../../../../../assets/app/media/img/baner/blowout/blowout-1.jpg');
+        // opacity: 0.5;
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        //background-color: rgba($color: $lisa-navy, $alpha: 0.5);
+    }
     .event-artist-avatar{
         height: 3rem;
         width: 3rem;

@@ -1,6 +1,19 @@
-<div class="card event-card">
-    <div class="card-header bg-white border-0">
-        <img src="{{event.artist.avatar}}" alt="artist avatar" class="img-thumbnail event-artist-avatar">
+<div class="card event-card border-0 shadow-box">
+    <div class="card-header border-0  event-card-header">
+        <img src="./../../../../../assets/app/media/img/baner/blowout/blowout-1.jpg" alt="baner_image"
+            class="banner-img">
+        <div class="d-flex justify-content-between baner-text">
+            <div class="d-flex justify-content-between">
+                <img src="{{event.artist.avatar}}" alt="artist avatar" class="img-thumbnail event-artist-avatar">
+                <div>
+                    <p>{{event.artist.first_name}} {{event.artist.last_name}}</p>
+                    <small>{{event.artist.nick_name}}</small>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-secondary btn-sm rounded-pill">Request</button>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         {{event.service.name}}

@@ -1,15 +1,23 @@
-<div class="card">
-    <div class="card-header bg-white">
+<div class="card bg-transparent border-0">
+    <div class="card-header bg-white border-0 shadow-box">
         Events timeline
     </div>
-    <div class="card-body">
+    <div class="card-body bg-transparent border-0">
         <app-loading *ngIf="isLoading" [message]="loadingMessage"></app-loading>
-        <div *ngIf="!isLoading && events">
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let ev of events; trackBy:eventTracker">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 col-lg-3 mb-4" *ngFor="let ev of events; trackBy:eventTracker">
+                    <app-event-card [event]="ev"></app-event-card>
+                </div>
+            </div>
+
+        </div>
+        <!-- <div *ngIf="!isLoading && events">
+            <ul class="list-group list-group-flush bg-transparent">
+                <li class="list-group-item bg-transparent border-0" *ngFor="let ev of events; trackBy:eventTracker">
                     <app-event-card [event]="ev"></app-event-card>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </div>
