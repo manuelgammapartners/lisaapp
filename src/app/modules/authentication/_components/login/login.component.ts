@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
     this.type = "danger"
   }
   login(): void {
+    this.message = "";
     this.loginModel.email = this.loginForm.value.email
     this.loginModel.password = this.loginForm.value.password
     this.isLoading = true;

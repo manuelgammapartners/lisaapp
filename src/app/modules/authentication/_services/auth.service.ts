@@ -11,6 +11,11 @@ export class AuthService {
 
   constructor(private _requestService: RequestService, ) { }
 
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
 
   postLogin(credentials: any): Observable<User> {
     //return this._requestService.post('auth/web-app/login', credentials)
@@ -20,7 +25,11 @@ export class AuthService {
 
   postSignUp(user) {
     return this._requestService.post('users/create', user);
-}
+  }
 
+
+  postRequestPassword(email){
+    return this._requestService.post('users/request-password-reset-web',email);
+  }
 
 }

@@ -30,12 +30,8 @@ export class SignupComponent implements OnInit {
 
 
   signup(){
-      //this.signUpModel.type = 'consumer';
+      this.message = "";
 
-      /*this.signUpModel.email = this.signUpForm.value.email
-      this.signUpModel.password = this.signUpForm.value.password
-      this.signUpModel.passwordConf = this.signUpForm.value.passwordConf
-      this.signUpModel.terms = this.signUpForm.value.terms*/
       console.log("Valores del model"+JSON.stringify(this.signUpForm.value));
       
 
@@ -54,6 +50,11 @@ export class SignupComponent implements OnInit {
 
 
   validateSignUpForm(){
+
+    if(!this._authService.validateEmail(this.signUpForm.value.email)){
+      this.message = "Need a valid email address."
+      return false;
+    }
 
     if(this.signUpForm.value.password.length < 8 || this.signUpForm.value.confirmPassword < 8){
       this.message = "Password must be at least 8 characters"
@@ -80,7 +81,7 @@ export class SignupComponent implements OnInit {
         return false;
     }
     return password === confirmedPassword;
-}
+  }
 
 
 }
