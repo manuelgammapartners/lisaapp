@@ -6,7 +6,7 @@
         <app-loading *ngIf="isLoading" [message]="loadingMessage"></app-loading>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12 col-md-4 col-lg-3 mb-4" *ngFor="let ev of events; trackBy:eventTracker">
+                <div class="col-xs-12 col-md-3 col-lg-3 col-xl-4 mb-4" *ngFor="let ev of events; trackBy:eventTracker">
                     <app-event-card [event]="ev"></app-event-card>
                 </div>
             </div>
