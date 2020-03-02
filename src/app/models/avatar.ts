@@ -1,4 +1,4 @@
-export default class Avatar  {
+export class Avatar  {
    id:number
    url: string
 }

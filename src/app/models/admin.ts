@@ -1,10 +1,10 @@
-import User from './user';
+import { User } from './user';
 import { Deserializable } from './deserializable.model';
-export default class Admin extends User implements Deserializable{
-    
+export class Admin extends User implements Deserializable {
+
     deserialize(input: any): this {
-  
-        Object.assign(this,input)
+
+        Object.assign(this, input)
 
         return this;
     }
